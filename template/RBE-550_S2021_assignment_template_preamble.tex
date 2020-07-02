@@ -91,10 +91,6 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \textbf{Daniel Montrallo Flickinger, PhD}%
 }
 
-% FIXME: Change the report title:
-% FIXME: Don't forget to edit abstract.tex too:
-% FIXME: change path for logo image
-
 % Begin title page
 \begin{titlepage}
 \BgThispage
@@ -105,7 +101,7 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \noindent
 \begin{flushright}
 \textcolor{white}{RBE-550 Path Planning\\%
-\Huge\textbf{Assignment: Path Planning}}
+\Huge\textbf{\assignmenttype: \assignmenttitle}}
 \end{flushright}
 \vspace*{2cm}\par
 \noindent
@@ -124,9 +120,11 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 % {\hspace{4pt}\today}
 \vspace{5pt}
 \textcolor{white}{%
-(abstract text)%
+{\huge{DUE: \assignmentdue ~ @ 11:00 GMT}}} \\
+%
+\textcolor{white}{%
+\assignmentabstract%
 }
-% FIXME: define variable for abstract text
 \end{minipage}
 \end{titlepage}
 \restoregeometry
