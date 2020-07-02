@@ -1,0 +1,44 @@
+
+% Nice section title formatting
+
+
+
+
+% fancy up the section titles
+\definecolor{bluegray}{RGB}{77,83,185}
+\titleformat
+{\section}
+[display]
+{\bfseries\Huge\itshape\sffamily}
+{
+\begin{tikzpicture}
+\node[drop shadow,fill=bluegray,rectangle,
+      rounded corners=5pt,inner sep=11pt]{\color{white}Section \thesection:};
+\end{tikzpicture}
+% \thesection
+}{0.25em}{
+%   \rule{\textwidth}{2pt}
+%   \vspace{1ex}
+  \centering
+} % before-code
+[
+\vspace{-2.5ex}%
+\rule{\textwidth}{2pt}
+] % after-code
+
+
+% fancy up the subsection titles
+\titleformat
+{\subsection}
+[frame]
+{\bfseries\sffamily\Large}
+% {[\hspace{4pt} \thesubsection \hspace{4pt}]}
+{
+\begin{tikzpicture}
+\node[rectangle, draw, outer sep=0pt, inner sep=4pt]{\thesubsection};
+\end{tikzpicture}
+}
+{0.25em}
+{}
+[]
+

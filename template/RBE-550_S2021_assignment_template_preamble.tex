@@ -1,0 +1,133 @@
+\documentclass[letterpaper]{article}
+
+
+\usepackage{lipsum}
+
+\usepackage[utf8]{inputenc}
+
+
+\usepackage[lf]{electrum}
+\usepackage[T1]{fontenc}
+
+\usepackage{titlesec}
+
+
+\usepackage{tikz}
+\usetikzlibrary{shadows,calc,positioning,arrows,decorations.markings,automata,shapes.geometric}
+
+
+\usepackage{dot2texi}
+\usepackage{booktabs}
+\usepackage{colortbl}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\usepackage[some]{background}
+
+\usepackage{geometry}
+\usepackage{xcolor}
+
+% \usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
+\hypersetup{%
+colorlinks=false,
+linkbordercolor=blue,
+pdfborderstyle={/S/U/W 0.5}
+}
+
+
+\usepackage{listings}
+
+% Format footers and section titles
+
+\input{/usr/local/share/LaTeX_templates/RBE550_assignment/footer}
+\input{/usr/local/share/LaTeX_templates/RBE550_assignment/section_format}
+
+\input{/usr/local/share/LaTeX_templates/RBE550_assignment/newcommand_shell_cmd}
+
+
+% ====
+
+% (cruft!)
+
+\tikzset{entity/.style={draw=black, fill=orange!20}}
+
+% TODO: move out into definitions file:
+\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
+   1 with {\arrow[semithick]{open triangle 60}}},
+   double distance=1.4pt, shorten >= 5.5pt,
+   preaction = {decorate},
+   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
+\tikzstyle{innerWhite} = [semithick, white,line width=1.4pt, shorten >= 4.5pt]
+
+
+
+% ====
+
+\begin{document}
+
+
+% Title Page
+
+\definecolor{titlepagecolor}{RGB}{171,25,45}
+
+\backgroundsetup{
+scale=1, angle=0, opacity=1,
+contents={\begin{tikzpicture}[remember picture,overlay]
+           \path [fill=titlepagecolor] (current page.south west) -- (current page.south east) --++(0,20cm) -| (current page.south west) -- cycle;
+           \draw [color=white] (5,0) --(5,0.5\paperheight);
+\end{tikzpicture}}
+}
+
+\makeatletter
+\def\printauthor{{\large \@author}}
+\makeatother
+
+
+\author{%
+\textbf{Daniel Montrallo Flickinger, PhD}%
+}
+
+% FIXME: Change the report title:
+% FIXME: Don't forget to edit abstract.tex too:
+% FIXME: change path for logo image
+
+% Begin title page
+\begin{titlepage}
+\BgThispage
+\newgeometry{left=1cm,right=6cm,bottom=2cm}
+\noindent
+\vspace*{0.10\textheight}
+\includegraphics[width=7cm]{/usr/local/share/LaTeX_templates/RBE550_assignment/fig/WPI_Inst_Prim_FulClr.png}%
+\noindent
+\begin{flushright}
+\textcolor{white}{RBE-550 Path Planning\\%
+\Huge\textbf{Assignment: Path Planning}}
+\end{flushright}
+\vspace*{2cm}\par
+\noindent
+\begin{minipage}{0.35\linewidth}
+ \begin{flushright}
+  \textcolor{white}{\printauthor}
+ \end{flushright}
+\end{minipage} \hspace{15pt}
+%
+%
+\begin{minipage}{0.02\linewidth}
+\textcolor{white}{\rule{1pt}{175pt}}
+\end{minipage} \hspace{-10pt}
+%
+\begin{minipage}{0.63\linewidth}
+% {\hspace{4pt}\today}
+\vspace{5pt}
+\textcolor{white}{%
+(abstract text)%
+}
+% FIXME: define variable for abstract text
+\end{minipage}
+\end{titlepage}
+\restoregeometry
+
