@@ -9,7 +9,7 @@
 \usepackage[lf]{electrum}
 \usepackage[T1]{fontenc}
 
-\usepackage{titlesec}
+\usepackage[explicit]{titlesec}
 
 
 \usepackage{tikz}
@@ -77,8 +77,8 @@ pdfborderstyle={/S/U/W 0.5}
 \backgroundsetup{
 scale=1, angle=0, opacity=1,
 contents={\begin{tikzpicture}[remember picture,overlay]
-           \path [fill=titlepagecolor] (current page.south west) -- (current page.south east) --++(0,20cm) -| (current page.south west) -- cycle;
-           \draw [color=white] (5,0) --(5,0.5\paperheight);
+           \path [fill=titlepagecolor] (current page.south west) -- (current page.south east) --++(-13cm,30cm) --++(-16.7cm,0) -- (current page.south west) -- cycle;
+           \draw [color=white, line width = 1mm] (5,0) --(5,0.5\paperheight);
 \end{tikzpicture}}
 }
 
@@ -109,7 +109,7 @@ contents={\begin{tikzpicture}[remember picture,overlay]
  \begin{flushright}
   \textcolor{white}{\printauthor}
  \end{flushright}
-\end{minipage} \hspace{15pt}
+\end{minipage} \hspace{14pt}
 %
 %
 \begin{minipage}{0.02\linewidth}
