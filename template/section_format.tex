@@ -12,13 +12,13 @@
 \titleformat
 {\section}
 [hang]
-{\normalfont\sffamily\Large\bfseries}
+{\normalfont\sffamily\huge\bfseries}
 {}
 {0pt}
 {
 \begin{tikzpicture}
-\node[draw,fill=white,text depth=1ex,font=\Large\bfseries\sffamily] (main){\hsp#1};
-\node[draw,fill=black,text depth=1ex] at (main.west){\textcolor{white}\thesection};
+\node[draw,fill=white,text depth=1ex,font=\Large] (main){\hsp#1};
+\node[draw,fill=black,text depth=1ex,font=\Large] at (main.west){\textcolor{white}\thesection};
 \end{tikzpicture}
 }
 
@@ -31,7 +31,7 @@
 {0pt}
 {
 \begin{tikzpicture}
-\node[rectangle, draw, outer sep=0pt, inner sep=4pt](main){\thesubsection \hsp #1};
+\node[rectangle, draw, outer sep=0pt, inner sep=4pt,font=\Large](main){\thesubsection \hsp #1};
 \end{tikzpicture}
 }
 

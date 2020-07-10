@@ -6,8 +6,13 @@
 \usepackage[utf8]{inputenc}
 
 
-\usepackage[lf]{electrum}
+\usepackage{palatino}
 \usepackage[T1]{fontenc}
+
+
+\usepackage{fontspec}
+\setsansfont{Eurostile}
+
 
 \usepackage[explicit]{titlesec}
 
@@ -88,7 +93,7 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 
 
 \author{%
-\textbf{Daniel Montrallo Flickinger, PhD}%
+\sffamily\textbf{Daniel Montrallo Flickinger, PhD}%
 }
 
 % Begin title page
@@ -100,14 +105,15 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \includegraphics[width=7cm]{/usr/local/share/LaTeX_templates/RBE550_assignment/fig/WPI_Inst_Prim_FulClr.png}%
 \noindent
 \begin{flushright}
-\textcolor{white}{RBE-550 Path Planning\\%
-\Huge\textbf{\assignmenttype~\assignmentnumber\\\assignmenttitle}}
+\textcolor{white}{\sffamily RBE-550 Path Planning\\%
+\small{\printauthor} \\%
+\Huge\sffamily\textbf{\assignmenttype~\assignmentnumber\\\assignmenttitle}}
 \end{flushright}
 \vspace*{2cm}\par
 \noindent
 \begin{minipage}{0.35\linewidth}
  \begin{flushright}
-  \textcolor{white}{\printauthor}
+%   \textcolor{white}{\printauthor}
  \end{flushright}
 \end{minipage} \hspace{14pt}
 %
@@ -120,7 +126,8 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 % {\hspace{4pt}\today}
 \vspace{5pt}
 \textcolor{white}{%
-{\huge{DUE: \assignmentdue ~ @ 11:00 GMT}}} \\
+\sffamily%
+{\Large{DUE: \assignmentdue ~ @ 11:00 GMT}}} \\
 %
 \textcolor{white}{%
 \assignmentabstract%
