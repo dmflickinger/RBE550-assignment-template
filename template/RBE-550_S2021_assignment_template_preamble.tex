@@ -26,6 +26,24 @@
 \usepackage{colortbl}
 \usepackage{tabularx}
 
+\usepackage{xfp,xparse}
+
+\ExplSyntaxOn
+\int_new:N\l_bjprim_round_int
+\keys_define:nn {bjprim}
+{
+   positions-after-comma .int_set:N = \l_bjprim_round_it
+}
+
+\NewDocumentCommand\percentage { O{} m }
+{
+   \keys_set:nn {bjprim}{positions-after-comma=0,#1}
+   \fpeval{round(#2*100,\l_bjprim_round_int)}\%
+}
+\ExplSyntaxOff
+
+
+
 \usepackage{lastpage}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -61,24 +79,6 @@ pdfborderstyle={/S/U/W 1}
 \input{/usr/local/share/LaTeX_templates/RBE550_assignment/newcommand_shell_cmd}
 
 
-% ====
-
-% (cruft!)
-
-\tikzset{entity/.style={draw=black, fill=orange!20}}
-
-% TODO: move out into definitions file:
-\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
-   1 with {\arrow[semithick]{open triangle 60}}},
-   double distance=1.4pt, shorten >= 5.5pt,
-   preaction = {decorate},
-   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
-\tikzstyle{innerWhite} = [semithick, white,line width=1.4pt, shorten >= 4.5pt]
-
-
-
-% ====
-
 \newcommand{\gradingdata}[3]{%
   \gdef\gradepoints{#1}%
   \gdef\gradesubmit{#2}%
@@ -88,9 +88,9 @@ pdfborderstyle={/S/U/W 1}
 
 \newcommand{\createGradeRow}{%
   \wlog{\gradepoints \gradesubmit \gradedescription}
-  \progressbar[filledcolor=titlepagecolor]{\gradepoints} \gradepoints & \gradesubmit & \gradedescription \\ \hline
+  \progressbar[filledcolor=titlepagecolor]{\gradepoints} \percentage{\gradepoints} & \gradesubmit & \gradedescription \\ \hline
 }
-% FIXME: show the gradepoints as a percent
+
 
 \newcommand{\gradingtable}[1]{%
 
