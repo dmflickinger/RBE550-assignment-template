@@ -36,7 +36,8 @@
 \usepackage{geometry}
 \usepackage{xcolor}
 
-% \usepackage[hidelinks]{hyperref}
+\definecolor{titlepagecolor}{RGB}{171,25,45}
+
 \usepackage{hyperref}
 \hypersetup{%
 colorlinks=false,
@@ -46,6 +47,11 @@ pdfborderstyle={/S/U/W 1}
 
 
 \usepackage{listings}
+
+
+\usepackage{progressbar}
+
+
 
 % Format footers and section titles
 
@@ -73,12 +79,50 @@ pdfborderstyle={/S/U/W 1}
 
 % ====
 
+\newcommand{\gradingdata}[3]{%
+  \gdef\gradepoints{#1}%
+  \gdef\gradesubmit{#2}%
+  \gdef\gradedescription{#3}%
+  \createGradeRow
+}
+
+\newcommand{\createGradeRow}{%
+  \wlog{\gradepoints \gradesubmit \gradedescription}
+  \progressbar[filledcolor=titlepagecolor]{\gradepoints} \gradepoints & \gradesubmit & \gradedescription \\ \hline
+}
+% FIXME: show the gradepoints as a percent
+
+\newcommand{\gradingtable}[1]{%
+
+\section{Grading and Submission}
+
+This assignment is due on \assignmentdue,
+at 11:00 GMT.  {\em Late submissions are not accepted.}  Upload completed assignment components to the course site on \href{https://canvas.wpi.edu}{Canvas}.
+
+
+\begin{table}[hb]
+   \begin{tabularx}{\linewidth}{|r|l|X|}
+       \hline
+       \rowcolor{black}
+         \textcolor{white}{\textbf{Weight}} &
+         \textcolor{white}{\textbf{Type}} &
+         \textcolor{white}{\textbf{Component}} \\ \hline
+       #1
+      \end{tabularx}
+   \end{table}   
+}
+
+
+
+
+
+
+
 \begin{document}
 
 
 % Title Page
 
-\definecolor{titlepagecolor}{RGB}{171,25,45}
 
 \backgroundsetup{
 scale=1, angle=0, opacity=1,
