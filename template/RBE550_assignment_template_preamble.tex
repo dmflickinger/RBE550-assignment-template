@@ -11,8 +11,10 @@
 
 
 \usepackage{fontspec}
-\setsansfont{Eurostile}
-
+% \setsansfont{Eurostile}
+\setsansfont{Jura}
+% NOTE: Jura is a stand-in for Eurostile
+% TODO: set section header font back to Eurostile
 
 \usepackage[explicit]{titlesec}
 
@@ -64,8 +66,14 @@ pdfborderstyle={/S/U/W 1}
 }
 
 
+
+
 \usepackage{listings}
 
+\usepackage{natbib}
+\usepackage{bibentry}
+\nobibliography{%
+/bib/RBE_resources.bib}
 
 \usepackage{progressbar}
 
@@ -150,7 +158,7 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \includegraphics[width=7cm]{/usr/local/share/LaTeX_templates/RBE550_assignment/fig/WPI_Inst_Prim_FulClr.png}%
 \noindent
 \begin{flushright}
-\textcolor{white}{\sffamily RBE-550 Path Planning\\%
+\textcolor{white}{\sffamily RBE-550 Motion Planning\\%
 \small{\printauthor} \\%
 \Huge\sffamily\textbf{\assignmenttype~\assignmentnumber\\\assignmenttitle}}
 \end{flushright}
