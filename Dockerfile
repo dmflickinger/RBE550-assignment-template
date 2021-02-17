@@ -6,36 +6,18 @@ RUN dnf install -y git \
     && dnf clean all
 
 WORKDIR /src
+RUN mkdir -p /src
 
+RUN git clone https://github.com/dmflickinger/RBE550resources.git
 
-# ADD git credentials on build
-# ============================
-
-ARG SSH_PRIVATE_KEY
-RUN mkdir /root/.ssh/ \
-    && chmod 700 /root/.ssh \
-    && echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa \
-    && chmod 600 /root/.ssh/id_rsa \
-    && touch /root/.ssh/known_hosts \
-    && ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts \
-    && echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /root/.ssh/config
-
-# NOTE: use --build-arg SSH_PRIVATE_KEY="$(<~/.ssh/id_rsa)" 
-
-
-RUN mkdir -p /bib \
-    && mkdir -p /src \
-    && ssh -v git@bitbucket.org | more \
-    && git clone git@bitbucket.org:sockworm/rbe550_resources.git \
-    && mv rbe550_resources/RBE_resources.bib /bib
-
-RUN rm -rf /root/.ssh
 
 
 
 
 
 FROM fedora
+
+
 
 
 # Install packages (mainly texlive)
@@ -116,7 +98,8 @@ RUN mkdir -p /source \
 COPY fig/*.png /usr/local/share/LaTeX_templates/RBE550_assignment/fig/
 COPY template/*.tex /usr/local/share/LaTeX_templates/RBE550_assignment/
 COPY scripts/build.sh /usr/local/bin/
-COPY --from=intermediate /bib/RBE_resources.bib /bib/
+
+COPY --from=intermediate /src/RBE550resources/RBE_resources.bib /bib
 
 WORKDIR /source
 
