@@ -1,4 +1,4 @@
-# RBE Lecture Template 
+# RBE Assignment Template 
 
 Template and example assignment for an RBE course at WPI.  Use the provided Docker container to build all assignments.  
 
