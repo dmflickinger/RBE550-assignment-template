@@ -82,7 +82,8 @@ colorlinks=false,
 linkbordercolor=red,
 pdfborderstyle={/S/U/W 1}
 }
-
+\usepackage{pdfescape}
+\usepackage{xstring}
 
 
 
@@ -97,12 +98,15 @@ pdfborderstyle={/S/U/W 1}
 
 
 % Format footers and section titles
+% ---------------------------------
 
 \input{/usr/local/share/LaTeX_templates/RBE550_assignment/footer}
 \input{/usr/local/share/LaTeX_templates/RBE550_assignment/section_format}
 
 \input{/usr/local/share/LaTeX_templates/RBE550_assignment/newcommand_shell_cmd}
 
+% Build a grading rubric chart
+% ----------------------------
 
 \newcommand{\gradingdata}[3]{%
   \gdef\gradepoints{#1}%
@@ -137,6 +141,10 @@ at 11:00 GMT.  {\em Late submissions are not accepted.}  Upload completed assign
    \end{table}   
 }
 
+
+
+% Build a list of URLs in the document
+% ------------------------------------
 
 \makeatletter
 \newwrite\file@url
@@ -195,6 +203,9 @@ at 11:00 GMT.  {\em Late submissions are not accepted.}  Upload completed assign
   \leaders\hbox to.6em{\hss .\hss}\hfil
 }
 \makeatother
+
+
+
 
 
 
