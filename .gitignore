@@ -6,4 +6,10 @@
 *.snm
 *.toc
 *.vrb
-!RBE550_assignment_template.pdf
+!RBE_assignment_template.pdf
+*.idx
+*.ilg
+*.ind
+*.mst
+*.bbl
+*.blg

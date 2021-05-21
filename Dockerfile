@@ -1,21 +1,5 @@
-FROM fedora as intermediate
-# Build an intermediate container to pull in RBE resources files
-
-RUN dnf install -y git \
-                   git-lfs \
-    && dnf clean all
-
-WORKDIR /src
-RUN mkdir -p /src
-
-RUN git clone https://github.com/dmflickinger/RBE550resources.git
-
-
-
-
-
-
-FROM fedora
+FROM fedora:33
+# TODO: xetex is broken in Fedora 34
 
 
 
@@ -45,6 +29,7 @@ RUN dnf install -y texlive-adjustbox \
                    texlive-collection-fontsrecommended \
                    texlive-fourier \
                    texlive-ifmtarg \
+                   texlive-IEEEtran \
                    texlive-inconsolata \
                    texlive-kpfonts \
                    texlive-lastpage \
@@ -57,8 +42,8 @@ RUN dnf install -y texlive-adjustbox \
                    texlive-minted \
                    texlive-mnsymbol \
                    texlive-multirow \
+                   texlive-ocr-latex \
                    texlive-pdfcrop \
-                   texlive-pgfgantt \
                    texlive-pgfopts \
                    texlive-pygmentex \
                    texlive-roboto \
@@ -68,6 +53,7 @@ RUN dnf install -y texlive-adjustbox \
                    texlive-sourcecodepro \
                    texlive-subfigmat \
                    texlive-svg \
+                   texlive-tcolorbox \
                    texlive-titlesec \
                    texlive-titling \
                    texlive-tocloft \
@@ -76,7 +62,6 @@ RUN dnf install -y texlive-adjustbox \
                    texlive-xifthen \
                    texlive-xtab \
                    texlive-xetex \
-                   texlive-beamer \
                    texlive-nextpage \
                    texlive-fancybox \
                    texlive-algorithm2e \
@@ -92,18 +77,25 @@ RUN dnf install -y texlive-adjustbox \
 
 RUN mkdir -p /source \
     && mkdir -p /output \
-    && mkdir -p /bib \
-    && mkdir -p /usr/local/share/LaTeX_templates/RBE550_assignment/fig
+    && mkdir -p /bib
 
-COPY fig/*.png /usr/local/share/LaTeX_templates/RBE550_assignment/fig/
-COPY template/*.tex /usr/local/share/LaTeX_templates/RBE550_assignment/
+
+COPY template/RBEassignment.cls /usr/share/texlive/texmf-local/tex/latex/RBEassignment/
+COPY template/fig/*.png /usr/share/texlive/texmf-local/tex/latex/RBEassignment/fig/
+
+
 COPY scripts/build.sh /usr/local/bin/
 
-COPY --from=intermediate /src/RBE550resources/RBE_resources.bib /bib
+
+# Register the RBE assignment class with texlive
+RUN tlmgr conf texmf TEXMFHOME /usr/share/texlive/texmf-local \
+    && mktexlsr /usr/share/texlive/texmf-local
+
 
 WORKDIR /source
 
 ENTRYPOINT [ "/usr/local/bin/build.sh" ]
 
 
-VOLUME [ "/source" "/output" ]
+# FIXME: volumes should be defined
+# VOLUME [ "/source" "/output" "/bib"]
