@@ -78,10 +78,6 @@
 
 
 
-\RequirePackage{lastpage}
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-
 
 \RequirePackage[some]{background}
 
@@ -137,8 +133,16 @@ line_max 500
 \end{filecontents*}
 
 
-% Define a nice footer
-% --------------------
+% Define a nice header and footer
+% -------------------------------
+
+
+\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{Assignment \RBEnumber}
+\rhead{\RBEtitle}
 
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot{}
