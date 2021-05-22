@@ -7,32 +7,25 @@
 
 
 
-% Based on the article class
-\LoadClass[letterpaper]{article}
-
 
 
 % Parameters
 % ----------
 
+\RequirePackage{xkeyval}
 
-
-\RequirePackage{pgfkeys}
-
-\pgfkeys{
-/myRBEassignmentheader/.is family, /myRBEassignmentheader,
-default/.style =
-  {title = Unknown Title, author = Unknown Author, course = Unknown Course, number = Unknown, due = Unknown},
-title/.estore in = \myRBEassignmentheaderTitle,
-author/.estore in = \myRBEassignmentheaderAuthor,
-course/.estore in = \myRBEassignmentheaderCourse,
-number/.estore in = \myRBEassignmentheaderNumber,
-due/.estore in = \myRBEassignmentheaderDue,
-% abstract/.estore in \myRBEassignmentheaderAbstract,
-}
+\def\RBEtitle{Untitled Assignment}
+\def\RBEcourse{RBE-000 Unknown Course}
+\def\RBEsemester{Fall 0000}
+\def\RBEauthor{Unknown Author}
+\def\RBEnumber{0}
+\def\RBEdue{NO DUE DATE}
 
 
 
+
+% Based on the article class
+\LoadClass[letterpaper]{article}
 
 
 % Bring in a bunch of packages
@@ -150,7 +143,7 @@ line_max 500
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot{}
 \fancyfoot[L,R]{\thepage\ / \pageref{LastPage}}
-\fancyfoot[L]{Summer 2021 ~ RBE-550 Motion Planning ~ \textcolor{WPIcrimson}{WPI}}
+\fancyfoot[L]{\RBEsemester ~ \RBEcourse ~ \textcolor{WPIcrimson}{WPI}}
 
 
 
@@ -181,7 +174,6 @@ line_max 500
 
 
 % fancy up the section titles
-\definecolor{sectioncrimson}{RGB}{171,25,45}
 \newcommand{\hsp}{\hspace{8pt}}
 
 
@@ -235,9 +227,8 @@ line_max 500
 
 \section{Grading and Submission}
 
-% FIXME: get the due date here
-% This assignment is due on \assignmentdue, at 11:00 GMT.  
-{\em Late submissions are not accepted.}  Upload completed assignment components to the course site on \href{https://canvas.wpi.edu}{Canvas}.
+This assignment is due \RBEdue.  
+\textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components to the course site on \href{https://canvas.wpi.edu}{Canvas}.
 
 
 \begin{table}[hb]
@@ -326,14 +317,10 @@ line_max 500
 % Title Page
 % ----------
 
-\newcommand{\RBEassignmentheader}[1][]{%
-
-\pgfkeys{/myRBEassignmentheader, default, #1}
+\newcommand{\RBEassignmentheader}{%
 
 
-% \author{%
-% \sffamily\textbf{\myRBEassignmentheaderAuthor}%
-% }
+
 
 % Draw a big colored filled polygon
 \backgroundsetup{
@@ -357,14 +344,14 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \includegraphics[width=7cm]{fig/WPI_Inst_Prim_FulClr.png}%
 \noindent
 \begin{flushright}
-\textcolor{white}{\sffamily \myRBEassignmentheaderCourse \\%
-\small{\myRBEassignmentheaderAuthor} \\%
-{\Huge\textbf Assignment~\myRBEassignmentheaderNumber\\\myRBEassignmentheaderTitle}}
+\textcolor{white}{\sffamily \RBEcourse \\%
+\small{\RBEauthor} \\%
+{\Huge\textbf{Assignment~\RBEnumber\\\RBEtitle}}}
 \vspace*{5cm}\par
 \noindent
 \begin{minipage}{0.5\linewidth}
 \vspace{5pt}
-\textcolor{white}{\sffamily\Large DUE: \myRBEassignmentheaderDue}
+\textcolor{white}{\sffamily\Large DUE: \RBEdue}
 \end{minipage}
 \end{flushright}
 
