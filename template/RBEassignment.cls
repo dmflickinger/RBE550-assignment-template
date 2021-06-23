@@ -232,7 +232,7 @@ line_max 500
 \section{Grading and Submission}
 
 This assignment is due \RBEdue.  
-\textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components to the course site on \href{https://canvas.wpi.edu}{Canvas}.
+\textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components (as individual files, not a single ZIP or TAR file) to the course site on \href{https://canvas.wpi.edu}{Canvas}.
 
 
 \begin{table}[hb]
