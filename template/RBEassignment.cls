@@ -33,7 +33,6 @@
 % ----------------------------
 
 
-\RequirePackage{lipsum}
 
 \RequirePackage[utf8]{inputenc}
 
