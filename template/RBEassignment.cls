@@ -33,7 +33,6 @@
 % ----------------------------
 
 
-\RequirePackage{lipsum}
 
 \RequirePackage[utf8]{inputenc}
 
@@ -321,6 +320,11 @@ This assignment is due \RBEdue.
 % Title Page
 % ----------
 
+\makeatletter
+\renewcommand\Huge{\@setfontsize\Huge{50pt}{18}}
+\makeatother
+
+
 \newcommand{\RBEassignmentheader}{%
 
 
@@ -329,42 +333,45 @@ This assignment is due \RBEdue.
 % Draw a big colored filled polygon
 \backgroundsetup{
 scale=1, angle=0, opacity=1,
-contents={\begin{tikzpicture}[remember picture,overlay]
-           \path [fill=WPIcrimson] (current page.south west) -- (current page.south east) --++(-13cm,30cm) --++(-16.7cm,0) -- (current page.south west) -- cycle;
-           \draw [color=white, line width = 1mm] (5,0) --(5,0.5\paperheight);
-\end{tikzpicture}}
-}
+contents={%
+\begin{tikzpicture}[remember picture,overlay]
+  %
+  \path [fill=WPIcrimson] (-4.25in,-5.5in) -- (0in,-5.5in) -- (-4.25in,4.0in) -- cycle;
+  %
+  \path [fill=WPIgray] (-4.25in,5.5in) -- (2.0in,5.5in) -- (-4.25in,-1.0in) --cycle;
+  %
+\end{tikzpicture}%
+} % contents
+} % backgroundsetup
 
 
-\pagecolor{WPIgray}
+
+
 
 
 % Begin title page
 \begin{titlepage}
 \BgThispage
-\newgeometry{left=1cm,right=6cm,bottom=2cm}
-\noindent
-\vspace*{0.10\textheight}
-\includegraphics[width=7cm]{fig/WPI_Inst_Prim_FulClr.png}%
+\newgeometry{top=1cm,left=1cm,right=1cm,bottom=2cm}
 \noindent
 \begin{flushright}
-\textcolor{white}{\sffamily \RBEcourse \\%
-\small{\RBEauthor} \\%
-{\Huge\textbf{Assignment~\RBEnumber\\\RBEtitle}}}
-\vspace*{5cm}\par
-\noindent
-\begin{minipage}{0.5\linewidth}
-\vspace{5pt}
-\textcolor{white}{\sffamily\Large DUE: \RBEdue}
-\end{minipage}
+\textcolor{WPIgray}{\sffamily\Huge\textbf{\RBEnumber}}
 \end{flushright}
-
+\includegraphics[width=3in]{fig/WPI_Inst_Prim_FulClr.png}%
+\noindent
+\begin{flushright}
+\textcolor{black}{\sffamily\Large\RBEcourse\\\RBEauthor}\\
+\vspace{0.25in}
+\textcolor{WPIcrimson}{\sffamily\Huge\textbf{\RBEtitle}}
+\end{flushright}
+\vspace{4.5in}\par\noindent
+\textcolor{white}{\sffamily\Large DUE: \RBEdue}
 \end{titlepage}
 
 
 \restoregeometry
-\pagecolor{white}
 
-}
+
+} % end of \newcommand{RBEassignmentheader}
 
 

@@ -1,5 +1,4 @@
-FROM fedora:33
-# TODO: xetex is broken in Fedora 34
+FROM fedora:35
 
 
 
