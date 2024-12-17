@@ -1,6 +1,7 @@
 
 services:
   assBuild:
+    build: .
     image: rbe550-assignment-builder
     volumes:
       - source:/source
