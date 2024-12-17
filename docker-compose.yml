@@ -9,6 +9,6 @@ services:
       - bib:/bib
 
 volumes:
-  source:
-  output:
-  bib:
+  - source:
+  - output:
+  - bib:
