@@ -1,0 +1,13 @@
+
+services:
+  assBuild:
+    image: rbe550-assignment-builder
+    volumes:
+      - source:/source
+      - output:/output
+      - bib:/bib
+
+volumes:
+  source: /source
+  output: /output
+  bib: /bib
