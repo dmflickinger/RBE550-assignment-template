@@ -9,6 +9,6 @@ services:
       - bib:/bib
 
 volumes:
-  - source:
-  - output:
-  - bib:
+  - source: /work/RBE550/source
+  - output: /work/RBE550/output
+  - bib: /work/RBE550/bib
