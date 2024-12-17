@@ -8,6 +8,6 @@ services:
       - bib:/bib
 
 volumes:
-  source: /source
-  output: /output
-  bib: /bib
+  source:
+  output:
+  bib:
