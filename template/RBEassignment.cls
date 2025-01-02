@@ -53,6 +53,7 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shadows,calc,positioning,arrows,decorations.markings,automata,shapes.geometric}
 
+\RequirePackage{xifthen}
 
 \RequirePackage{dot2texi}
 \RequirePackage{booktabs}
