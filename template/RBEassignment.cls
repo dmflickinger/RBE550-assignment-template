@@ -249,6 +249,54 @@ This assignment is due \RBEdue.
 
 
 
+% Build tetromino obstacle fields
+% -------------------------------
+
+
+\newcommand{\ifequals}[3]{\ifthenelse{\equal{#1}{#2}}{#3}{}}
+\newcommand{\case}[2]{#1 #2}
+\newenvironment{switch}[1]{\renewcommand{\case}{\ifequals{#1}}}{}
+
+\newcommand{\tetI}[2] {% I tetromino
+\fill (#1,#2) rectangle ++ (1,4);
+}
+
+\newcommand{\tetL}[2] {% L tetromino
+\fill (#1+1,#2) rectangle ++ (1,3);
+\fill (#1,#2+2) rectangle ++ (1,1);
+}
+
+\newcommand{\tetS}[2] {% S tetromino
+\fill (#1+1,#2) rectangle ++ (1,2);
+\fill (#1,#2+1) rectangle ++ (1,2);
+}
+
+\newcommand{\tetT}[2] {% T tetromino
+\fill (#1+1,#2) rectangle ++ (1,3);
+\fill (#1,#2+1) rectangle ++ (1,1);
+}
+
+\newcommand{\tetZ}[2] {% Z tetromino
+\fill (#1,#2) rectangle ++ (1,2);
+\fill (#1+1,#2+1) rectangle ++ (1,2);
+}
+
+\newcommand{\tetO}[2]{% O tetromino
+\fill (#1,#2) rectangle ++ (2,2);
+}
+
+\newcommand{\placeTet}[3] {
+\begin{switch}{#1}
+    \case{0}{\tetI{#2}{#3}}
+    \case{1}{\tetL{#2}{#3}}
+    \case{2}{\tetS{#2}{#3}}
+    \case{3}{\tetT{#2}{#3}}
+    \case{4}{\tetZ{#2}{#3}}
+    \case{5}{\tetO{#2}{#3}}
+\end{switch}
+}
+
+
 
 % Build a list of URLs in the document
 % ------------------------------------
