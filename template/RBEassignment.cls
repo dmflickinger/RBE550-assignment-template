@@ -9,8 +9,8 @@
 
 
 
-% Parameters
-% ----------
+% Default Parameters
+% ------------------
 
 \RequirePackage{xkeyval}
 
@@ -108,7 +108,7 @@ pdfborderstyle={/S/U/W 1}
 \RequirePackage{natbib}
 \RequirePackage{bibentry}
 \nobibliography{%
-/bib/RBE_resources.bib}
+bib/RBE_resources.bib}
 
 \RequirePackage{progressbar}
 
@@ -214,38 +214,76 @@ line_max 500
 % Build a grading rubric chart
 % ----------------------------
 
-\newcommand{\gradingdata}[3]{%
-  \gdef\gradepoints{#1}%
-  \gdef\gradesubmit{#2}%
-  \gdef\gradedescription{#3}%
-  \createGradeRow
-}
 
-\newcommand{\createGradeRow}{%
-  \wlog{\gradepoints \gradesubmit \gradedescription}
-  \progressbar[filledcolor=WPIcrimson]{\gradepoints} \percentage{\gradepoints} & \gradesubmit & \gradedescription \\ \hline
+\newcommand{\gradingrubric}[2]{%
+\gradingWriteupSection{#1}
+\gradingSubmissionSection{#2}
 }
 
 
-\newcommand{\gradingtable}[1]{%
+% Grading data:
+% [1] points (out of 100)
+% [2] grade type
+% [3] grade title
+% [4] grade (long) description
+\newcommand{\gradingdescdata}[4]{%
+\gradeWriteupSections{%
+\subsection{\progressbar[filledcolor=WPIcrimson]{#1} \percentage{#1} #3}
+
+#4
+}
+\gradeTableRows{%
+\progressbar[filledcolor=WPIcrimson]{#1} \percentage{#1} & 
+#2 &
+#3 \\ \hline}
+}
+
+
+\makeatletter
+\newcommand{\gradeTableRows}[1]{\g@addto@macro\@gradeTableRows{#1}}
+\newcommand{\@gradeTableRows}{%
+    \hline
+    \rowcolor{black}
+    \textcolor{white}{\textbf{Weight}} &
+    \textcolor{white}{\textbf{Type}} &
+    \textcolor{white}{\textbf{Component}} \\ \hline
+}
+
+\newcommand{\gradeWriteupSections}[1]{\g@addto@macro\@gradeWriteupSections{#1}}
+\newcommand{\@gradeWriteupSections}{}
+
+\makeatother
+
+
+
+\newcommand{\gradingSubmissionSection}[1]{%
 
 \section{Grading and Submission}
 
 This assignment is due \RBEdue.  
-\textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components (as individual files, not a single ZIP or TAR file) to the course site on \href{https://canvas.wpi.edu}{Canvas}.
-
+\textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components (as individual files, \textbf{not} a single ZIP or TAR file) to the course site on \href{https://canvas.wpi.edu}{Canvas}.
 
 \begin{table}[hb]
    \begin{tabularx}{\linewidth}{|r|l|X|}
-       \hline
-       \rowcolor{black}
-         \textcolor{white}{\textbf{Weight}} &
-         \textcolor{white}{\textbf{Type}} &
-         \textcolor{white}{\textbf{Component}} \\ \hline
-       #1
-      \end{tabularx}
-   \end{table}   
+        #1
+    \end{tabularx}
+\end{table}
+
+
 }
+
+
+
+\newcommand{\gradingWriteupSection}[1]{%
+
+\section{Grading Rubric}
+
+% TODO: write an intro text for the grading rubric section
+
+#1
+
+}
+
 
 
 

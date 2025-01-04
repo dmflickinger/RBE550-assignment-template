@@ -1,4 +1,19 @@
 #!/bin/bash
+# Install dependencies and template files
+
+# Install dependencies
+# --------------------
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update 
+apt-get install -y $(cat .devcontainer/dependencies.txt) 
+
+# Install resources (bibliography)
+# --------------------------------
+
+rm -rf bib
+git clone https://github.com/dmflickinger/RBE550resources.git bib
+
 # Install assignments template (from local directory)
 # ---------------------------------------------------
 
