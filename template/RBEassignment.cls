@@ -261,7 +261,7 @@ line_max 500
     \rowcolor{black}
     \textcolor{white}{\textbf{Weight}} &
     \textcolor{white}{\textbf{Type}} &
-    \textcolor{white}{\textbf{Component}} \\ \hline
+    \textcolor{white}{\textbf{Component} (See Table~\ref{tab:submissionLegend})}\\ \hline
 }
 
 \newcommand{\gradeWriteupSections}[1]{\g@addto@macro\@gradeWriteupSections{#1}}
@@ -498,3 +498,25 @@ contents={%
 } % end of \newcommand{RBEassignmentheader}
 
 
+\newcommand{\assignmentfooter}{%
+
+\begin{table}
+\caption{Submission legend%
+\label{tab:submissionLegend}}
+  \begin{tabularx}{\linewidth}{|l|X|}
+      \hline
+      \faFileText & report or brief writeup \\ \hline
+      \faFileCodeO & source code (or link to revision control) \\ \hline
+      \faFileVideoO & video presentation, or simulation animation \\ \hline
+      \faLineChart & data plot or image \\ \hline
+      \faComment & post in the discussion forum on \href{https://canvas.wpi.edu}{Canvas} \\ \hline
+    \end{tabularx}
+\end{table}
+
+
+\vspace{6em}
+\begin{center}
+{\small \sffamily Last update: \today}
+\end{center}
+
+}
