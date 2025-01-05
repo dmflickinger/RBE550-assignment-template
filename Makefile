@@ -34,3 +34,5 @@ clean :
 	rm -f *.snm
 	rm -f *.idx
 	rm -f *.mst
+	rm -f *.ilg
+	rm -f *.ind

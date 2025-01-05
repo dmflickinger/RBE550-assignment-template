@@ -9,10 +9,10 @@
 
 \def\RBEtitle{Assignment\\Template}
 \def\RBEcourse{RBE-001 Generic RBE Course}
-\def\RBEsemester{Spring 2022}
+\def\RBEsemester{Spring 2025}
 \def\RBEauthor{Daniel Montrallo Flickinger, PhD}
 \def\RBEnumber{0}
-\def\RBEdue{2022-01-01 @ 00:00 UTC}
+\def\RBEdue{2025-03-04 @ 12:00 UTC}
 
 
 
@@ -29,20 +29,84 @@ The most recent version of the \href{https://github.com/dmflickinger/RBE550-assi
 
 \lipsum[2]
 
-\subsection{More background}
+\subsection{2D Obstacle Fields}
 
-\lipsum[3]
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\coordinate (gridsize) at (15,15);
+\pgfmathsetmacro{\numTets}{15}
+
+\begin{scope}[local bounding box=L]
+\foreach \i in {1,...,\numTets} {
+    \pgfmathsetmacro{\tetRow}{int(12 * random())}
+    \pgfmathsetmacro{\tetCol}{int(12 * random())}
+    \pgfmathsetmacro{\whichTet}{int(5 * random())}
+    \placeTet{\whichTet}{\tetRow}{\tetCol};
+}
+\draw (0,0) grid (gridsize);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\caption{Example obstacle field.%
+\label{fig:obstacleField}}
+\end{figure}
+
+
+Figure~\ref{fig:obstacleField} depicts a 2D obstacle field.
+
+
 
 \section{Methods}
 
-\lipsum[4]
+\begin{wrapfigure}{L}{0.1\textwidth}
+    \centering
+    \tikz\draw[black,fill=black] (0,0) circle (2ex);
+\end{wrapfigure}
+Here is a wrapped figure.  It is a large black dot, created with the Tikz package.  Wrapped figures tend to misbehave if there is not enough text to actually wrap around.  So be sure to be extra wordy in the write up, or things start looking crappy.  Just like any other figure environment, a wrapfig may include a caption.  Do this if you want something even more descriptive, or if you like to just use up space.  
+
+
+\paragraph*{Special paragraph heading}
+\lipsum[1]
 
 An article: \cite{WSJrobotRescue}.
 
-\gradingtable{%
-    \gradingdata{0.5}{PDF}{first part of assignment}
-    \gradingdata{0.5}{video}{second part of assignment}
+
+
+\gradingdescdata{0.25}{\faFileText}{report}{%
+\begin{wrapfigure}{L}{0.1\textwidth}
+    \centering
+    \tikz\draw[black,fill=black] (0,0) circle (2ex);
+\end{wrapfigure}
+Brief report covering all results.  This result includes a wrapped figure, depicting a big black ball.  This could be any figure, to help illustrate an example of what should be presented as a result for grading.  
+
+Longer writeup helps communicate the components of the assignment to students, and gives clear examples to explain what is expected for each part of the assignment.  
 }
+\gradingdescdata{0.75}{\faFileVideoO}{path animation}{Video illustrating the resulting path.}
+
+\makeatletter
+\gradingrubric{\@gradeWriteupSections}{\@gradeTableRows}{\@gradePieFields}
+\makeatother
+
+
+\section{Testing Area for Grading Pie Chart}
+
+\makeatletter
+\@gradePieFields
+
+% FIXME: get pie chart working with macro for rubric:
+\newcommand{\piedata}{0.5/A, 0.25/B, 0.25/C, }
+
+\begin{tikzpicture}
+\pie[sum=1, text=legend]{0.5/A, 0.25/B, 0.25/C, 0/}
+% \pie[sum=1, text=legend]{\pimdata 0/}
+\end{tikzpicture}
+\makeatother
+
+
+% ============================================
+
 
 \stepcounter{section}
 \bibliographystyle{plainnat}
