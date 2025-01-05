@@ -277,20 +277,27 @@ line_max 500
 \newcommand{\gradingSubmissionSection}[2]{%
 
 \section{Submission}
+\label{sec:submission}
 
 % TODO: make a big box with diagonal stripes saying 'late submissions are not accepted'
-% TODO: remind students to submit partial work
 
 This assignment is due \RBEdue.  
 \textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components (as individual files, \textbf{not} a single ZIP or TAR file) to the course site on \href{https://canvas.wpi.edu}{Canvas}.
 
+Submit work early, as partial credit for incomplete work is preferred to earning a zero for missing work.  Submissions may be ammended up until the deadline.  
 
+
+\section{Grading Rubric}
+\label{sec:rubric}
+
+Refer to Table~\ref{tab:gradingRubric} for the grading rubric.  
 % FIXME: get pie charts working in grade rubric
 % \begin{tikzpicture}
 % \pie[sum=1, hide number, text=legend]{#2 0/}
 % \end{tikzpicture}
 
 \begin{table}[hb]
+  \caption{Grading rubric\label{tab:gradingRubric}}
    \begin{tabularx}{\linewidth}{|r|l|X|}
         #1
     \end{tabularx}
@@ -303,9 +310,11 @@ This assignment is due \RBEdue.
 
 \newcommand{\gradingWriteupSection}[1]{%
 
-\section{Grading Rubric}
+\section{Results}
+\label{sec:results}
 
-% TODO: write an intro text for the grading rubric section
+Complete the components discussed in the following sections to receive full credit on this assignment.  Refer to Section~\ref{sec:submission} for submission guidelines, and Section~\ref{sec:rubric} for a summary of the grading rubric.  Consider submitting your work as you complete each component, as partial credit is preferred to no credit.  
+
 
 #1
 
