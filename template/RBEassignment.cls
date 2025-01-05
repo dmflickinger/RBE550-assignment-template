@@ -53,6 +53,10 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shadows,calc,positioning,arrows,decorations.markings,automata,shapes.geometric}
 
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=newest}
+\RequirePackage{pgf-pie}
+
 \RequirePackage{xifthen}
 
 \RequirePackage{dot2texi}
@@ -215,20 +219,20 @@ line_max 500
 % ----------------------------
 
 
-\newcommand{\gradingrubric}[2]{%
+\newcommand{\gradingrubric}[3]{%
 \gradingWriteupSection{#1}
-\gradingSubmissionSection{#2}
+\gradingSubmissionSection{#2}{#3}
 }
 
 
 % Grading data:
-% [1] points (out of 100)
+% [1] points (0..1)
 % [2] grade type
 % [3] grade title
 % [4] grade (long) description
 \newcommand{\gradingdescdata}[4]{%
 \gradeWriteupSections{%
-\subsection{\progressbar[filledcolor=WPIcrimson]{#1} \percentage{#1} #3}
+\subsection{#2 \progressbar[filledcolor=WPIcrimson]{#1} \percentage{#1} #3}
 
 #4
 }
@@ -236,6 +240,7 @@ line_max 500
 \progressbar[filledcolor=WPIcrimson]{#1} \percentage{#1} & 
 #2 &
 #3 \\ \hline}
+\gradePieFields{#1/#3, }
 }
 
 
@@ -252,16 +257,25 @@ line_max 500
 \newcommand{\gradeWriteupSections}[1]{\g@addto@macro\@gradeWriteupSections{#1}}
 \newcommand{\@gradeWriteupSections}{}
 
+\newcommand{\gradePieFields}[1]{\g@addto@macro\@gradePieFields{#1}}
+\newcommand{\@gradePieFields}{}
+
 \makeatother
 
 
 
-\newcommand{\gradingSubmissionSection}[1]{%
+\newcommand{\gradingSubmissionSection}[2]{%
 
-\section{Grading and Submission}
+\section{Submission}
 
 This assignment is due \RBEdue.  
 \textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components (as individual files, \textbf{not} a single ZIP or TAR file) to the course site on \href{https://canvas.wpi.edu}{Canvas}.
+
+
+% FIXME: get pie charts working in grade rubric
+% \begin{tikzpicture}
+% \pie[sum=1, hide number, text=legend]{#2 0/}
+% \end{tikzpicture}
 
 \begin{table}[hb]
    \begin{tabularx}{\linewidth}{|r|l|X|}

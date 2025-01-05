@@ -5,9 +5,6 @@
 
 
 
-
-
-
 \begin{document}
 
 
@@ -72,16 +69,26 @@ Figure~\ref{fig:obstacleField} depicts a 2D obstacle field.
 An article: \cite{WSJrobotRescue}.
 
 
-
+% TODO: use icons for PDF,TXT,movies
 \gradingdescdata{0.25}{PDF}{first}{first part of assignment}
 \gradingdescdata{0.75}{txt}{second}{second part of assignment}
 
 \makeatletter
-\gradingrubric{\@gradeWriteupSections}{\@gradeTableRows}
+\gradingrubric{\@gradeWriteupSections}{\@gradeTableRows}{\@gradePieFields}
 \makeatother
 
 
+\makeatletter
+\@gradePieFields
 
+% FIXME: get pie chart working with macro for rubric:
+\newcommand{\piedata}{0.5/A, 0.25/B, 0.25/C, }
+
+\begin{tikzpicture}
+\pie[sum=1, text=legend]{0.5/A, 0.25/B, 0.25/C, 0/}
+% \pie[sum=1, text=legend]{\pimdata 0/}
+\end{tikzpicture}
+\makeatother
 
 \stepcounter{section}
 \bibliographystyle{plainnat}
