@@ -41,8 +41,9 @@
 
 
 \RequirePackage{fontspec}
-\setsansfont{Jura}
-% NOTE: Jura is a stand-in for Eurostile
+\setsansfont{Jura} % NOTE: Jura is a stand-in for Eurostile
+\RequirePackage{fontawesome}
+
 
 % \RequirePackage[ocr-a]{ocr}
 
@@ -65,6 +66,9 @@
 \RequirePackage{tabularx}
 
 \RequirePackage{xfp,xparse}
+
+
+
 
 \ExplSyntaxOn
 \int_new:N\l_bjprim_round_int
@@ -108,6 +112,12 @@ pdfborderstyle={/S/U/W 1}
 
 
 \RequirePackage{listings}
+
+
+
+\RequirePackage{wrapfig}
+\RequirePackage{mathabx}
+
 
 \RequirePackage{natbib}
 \RequirePackage{bibentry}
