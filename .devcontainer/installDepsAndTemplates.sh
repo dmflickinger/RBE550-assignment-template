@@ -31,8 +31,7 @@ ZIP_FILE=pgf-pie.zip
 
 mkdir -p $(kpsewhich -var-value=TEXMFLOCAL)/tex/latex/generic
 
-curl ${CTAN_MIRROR}/${ZIP_FILE} -o $(kpsewhich -var-value=TEXMFLOCAL)/
-tex/latex/generic/${ZIP_FILE}
+curl ${CTAN_MIRROR}/${ZIP_FILE} -o $(kpsewhich -var-value=TEXMFLOCAL)/tex/latex/generic/${ZIP_FILE}
 
 unzip $(kpsewhich -var-value=TEXMFLOCAL)/tex/latex/generic/${ZIP_FILE} -x pgf-pie/demo/*
 

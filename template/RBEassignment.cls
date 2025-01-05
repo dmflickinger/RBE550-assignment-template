@@ -278,6 +278,9 @@ line_max 500
 
 \section{Submission}
 
+% TODO: make a big box with diagonal stripes saying 'late submissions are not accepted'
+% TODO: remind students to submit partial work
+
 This assignment is due \RBEdue.  
 \textcolor{red}{\em Late submissions are not accepted.}  Upload completed assignment components (as individual files, \textbf{not} a single ZIP or TAR file) to the course site on \href{https://canvas.wpi.edu}{Canvas}.
 
