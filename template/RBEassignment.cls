@@ -41,7 +41,7 @@
 
 
 \RequirePackage{fontspec}
-\setsansfont{Jura} % NOTE: Jura is a stand-in for Eurostile
+\setsansfont{Orbitron-800.ttf}
 \RequirePackage{fontawesome}
 
 
@@ -488,7 +488,7 @@ contents={%
 \textcolor{WPIcrimson}{\sffamily\Huge\textbf{\RBEtitle}}
 \end{flushright}
 \vspace{4.5in}\par\noindent
-\textcolor{white}{\sffamily\Large DUE: \RBEdue}
+\textcolor{white}{\sffamily DUE: \RBEdue}
 \end{titlepage}
 
 

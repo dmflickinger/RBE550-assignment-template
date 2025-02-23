@@ -8,6 +8,15 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update 
 apt-get install -y $(cat .devcontainer/dependencies.txt) 
 
+# Install fonts
+# -------------
+
+npm install -g google-font-installer
+
+mkdir -p /usr/share/fonts/googlefonts
+gfi download orbitron -d /usr/share/fonts/googlefonts
+fc-cache -fv
+
 # Install resources (bibliography)
 # --------------------------------
 
