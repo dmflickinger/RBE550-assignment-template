@@ -17,3 +17,4 @@ curl
 fonts-jura
 python3-pygments
 locales
+npm
