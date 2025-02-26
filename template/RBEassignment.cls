@@ -36,8 +36,7 @@
 
 \RequirePackage[utf8]{inputenc}
 
-\RequirePackage{palatino}
-\RequirePackage[T1]{fontenc}
+\RequirePackage[sfdefault]{roboto}
 
 
 \RequirePackage{fontspec}
@@ -45,7 +44,6 @@
 \RequirePackage{fontawesome}
 
 
-% \RequirePackage[ocr-a]{ocr}
 
 
 \RequirePackage[explicit]{titlesec}
