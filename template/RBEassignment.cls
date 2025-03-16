@@ -48,6 +48,7 @@
 
 \RequirePackage[explicit]{titlesec}
 
+\RequirePackage{subcaption}
 
 \RequirePackage{tikz}
 \usetikzlibrary{shadows,calc,positioning,arrows,decorations.markings,automata,shapes.geometric}
