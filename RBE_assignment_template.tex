@@ -99,14 +99,16 @@ Longer writeup helps communicate the components of the assignment to students, a
 \@gradePieFields
 
 % FIXME: get pie chart working with macro for rubric:
-\newcommand{\piedata}{0.5/A, 0.25/B, 0.25/C, }
+% Define separate macros for weights and labels
+\newcommand{\pieweights}{0.25, 0.2, 0.2, 0.25, 0.1}
+\newcommand{\pielabels}{report, source code, plots, path animation, discussion}
+
 
 \begin{tikzpicture}
-\pie[sum=1, text=legend]{0.5/A, 0.25/B, 0.25/C, 0/}
-% \pie[sum=1, text=legend]{\pimdata 0/}
+\pie[sum=1, text=legend, after number=\%]{0.25/A, 0.2/B, 0.2/C, 0.25/D, 0.1/E}
+% {\pieweights {\pielabels}}
 \end{tikzpicture}
 \makeatother
-
 
 % ============================================
 
