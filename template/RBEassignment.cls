@@ -121,7 +121,7 @@ pdfborderstyle={/S/U/W 1}
 \RequirePackage{natbib}
 \RequirePackage{bibentry}
 \nobibliography{%
-bib/RBE_resources.bib}
+/bib/RBE_resources.bib}
 
 \RequirePackage{progressbar}
 
