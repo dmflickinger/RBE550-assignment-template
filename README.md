@@ -1,20 +1,11 @@
-# RBE Assignment Template 
+# RBE Assignment Template
 
-Template and example assignment for an RBE course at WPI.  Use the provided Docker container to build all assignments.  
+Template and example assignment for an RBE course at WPI.
 
 ## Dependencies
 
-All required LaTeX packages are installed in the container.  
-Obtain the [RBE resources](https://github.com/dmflickinger/RBE550resources) project for the bibliography files.
-
+All required LaTeX packages are installed in the provided [development container](.devcontainer/devcontainer.json).  
 
 ## Build
 
-```sh
-mkdir assignments
-docker build -t rbe_assignments .
-docker run -it --rm -v .:/source -v assignments:/output -v ../rbe_resources:/bib rbe_assignments
-```
-
-A completed assignment (in PDF) format is created in the assignments directory.
-
+Run `make` to build the example assignment.

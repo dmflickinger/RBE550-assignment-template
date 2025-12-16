@@ -1,3 +1,11 @@
 {
-    "makefile.configureOnOpen": false
+    "makefile.configureOnOpen": false,
+    "cSpell.words": [
+        "bibtex",
+        "Eassignment",
+        "Flickinger",
+        "Montrallo",
+        "nonstopmode",
+        "xelatex"
+    ]
 }
