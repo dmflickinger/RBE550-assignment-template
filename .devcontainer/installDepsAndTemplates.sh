@@ -43,3 +43,9 @@ mktexlsr $(kpsewhich -var-value=TEXMFLOCAL)
 sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 dpkg-reconfigure --frontend=noninteractive locales
 update-locale LANG=en_US.UTF-8
+
+
+# Copy the Makefile to a central location
+mkdir -p /usr/local/share/RBEassignment
+cp -f template/assignment_builder.mk /usr/local/share/RBEassignment/
+

@@ -12,3 +12,7 @@ cp -f template/fig/*.png $(kpsewhich -var-value=TEXMFLOCAL)/tex/latex/RBEassignm
 
 tlmgr conf texmf TEXMFLOCAL $(kpsewhich -var-value=TEXMFLOCAL)
 mktexlsr $(kpsewhich -var-value=TEXMFLOCAL)
+
+# Copy the Makefile to a central location
+mkdir -p /usr/local/share/RBEassignment
+cp -f template/assignment_builder.mk /usr/local/share/RBEassignment/

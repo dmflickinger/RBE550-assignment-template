@@ -1,20 +1,19 @@
-# Makefile for assignment
-# Date: 2021
+# Makefile for assignments
+# Date: 2025
 # Author: Daniel Montrallo Flickinger, PhD ; dflickinger@wpi.edu
 
-assignment_name = RBE_assignment_template
-
+LATEX_BUILD = xelatex -shell-escape -interaction=nonstopmode -file-line-error
 
 all : document
 document: $(assignment_name).tex
-#	$(MAKE) -C diagrams
-	xelatex -shell-escape -interaction=nonstopmode -file-line-error $(assignment_name)
-	xelatex -shell-escape -interaction=nonstopmode -file-line-error $(assignment_name)
+	find . -name "Makefile" -exec sh -c 'cd "$(dirname "$0")" && make' {} \;
+	$(LATEX_BUILD) $(assignment_name)
+	$(LATEX_BUILD) $(assignment_name)
 	makeindex $(assignment_name)-url
 	bibtex $(assignment_name)
 	bibtex $(assignment_name)
-	xelatex -shell-escape -interaction=nonstopmode -file-line-error $(assignment_name)
-	xelatex -shell-escape -interaction=nonstopmode -file-line-error $(assignment_name)
+	$(LATEX_BUILD) $(assignment_name)
+	$(LATEX_BUILD) $(assignment_name)
 
 
 install: document
