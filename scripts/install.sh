@@ -14,5 +14,9 @@ tlmgr conf texmf TEXMFLOCAL $(kpsewhich -var-value=TEXMFLOCAL)
 mktexlsr $(kpsewhich -var-value=TEXMFLOCAL)
 
 # Copy the Makefile to a central location
-mkdir -p /usr/local/share/RBEassignment
-cp -f template/assignment_builder.mk /usr/local/share/RBEassignment/
+MK_PATH=/usr/local/share/RBEassignment
+mkdir -p ${MK_PATH}
+cp -f template/assignment_diagrams.mk ${MK_PATH}
+cp -f template/assignment_inst_clean.mk ${MK_PATH}
+cp -f template/assignment_nobib.mk ${MK_PATH}
+cp -f template/assignment.mk ${MK_PATH}
