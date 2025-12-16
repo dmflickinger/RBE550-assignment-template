@@ -5,4 +5,5 @@
 assignment_name = RBE_assignment_template
 export assignment_name
 
-include /usr/local/share/RBEassignment/assignment_builder.mk
+include /usr/local/share/RBEassignment/assignment.mk
+include /usr/local/share/RBEassignment/assignment_inst_clean.mk
