@@ -20,8 +20,8 @@ fc-cache -fv
 # Install resources (bibliography)
 # --------------------------------
 
-rm -rf bib
-git clone https://github.com/dmflickinger/RBE550resources.git bib
+rm -rf /bib
+git clone https://github.com/dmflickinger/RBE550resources.git /bib
 
 # Install assignments template (from local directory)
 # ---------------------------------------------------
