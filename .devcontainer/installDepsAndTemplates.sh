@@ -11,11 +11,18 @@ apt-get install -y $(cat .devcontainer/dependencies.txt)
 # Install fonts
 # -------------
 
-npm install -g google-font-installer
+LOCAL_FONT_DIR=/usr/share/fonts/googlefonts
+REPO_URL="https://github.com/googlefonts/orbitron-vf/raw/refs/heads/master/fonts/ttf/"
 
-mkdir -p /usr/share/fonts/googlefonts
-gfi download orbitron -d /usr/share/fonts/googlefonts
+mkdir -p $LOCAL_FONT_DIR
+
+curl -fLo $LOCAL_FONT_DIR/Orbitron-Regular.ttf "$REPO_URL/Orbitron-Regular.ttf"
+curl -fLo $LOCAL_FONT_DIR/Orbitron-Medium.ttf "$REPO_URL/Orbitron-Medium.ttf"
+curl -fLo $LOCAL_FONT_DIR/Orbitron-Bold.ttf "$REPO_URL/Orbitron-Bold.ttf"
+curl -fLo $LOCAL_FONT_DIR/Orbitron-Black.ttf "$REPO_URL/Orbitron-Black.ttf"
+
 fc-cache -fv
+
 
 # Install resources (bibliography)
 # --------------------------------

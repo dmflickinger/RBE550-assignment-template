@@ -5,7 +5,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{RBEassignment}[WPI RBE assignment class]
 
-% TODO: switch to orbitron font (from Google fonts)
 
 
 
@@ -40,7 +39,7 @@
 
 
 \RequirePackage{fontspec}
-\setsansfont{Orbitron-800.ttf}
+\setsansfont{Orbitron-Bold.ttf}
 \RequirePackage{fontawesome}
 
 
